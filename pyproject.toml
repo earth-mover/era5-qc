@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "era5-qc"
+version = "0.1.0"
+description = "Independent QC verification CLI for ERA5 hourly reanalysis Arraylake repositories."
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+  "arraylake",
+  "xarray[io]",
+  "cdsapi",
+  "pcodec>=1.0.2",
+]
+
+[project.scripts]
+era5-qc = "era5_qc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
